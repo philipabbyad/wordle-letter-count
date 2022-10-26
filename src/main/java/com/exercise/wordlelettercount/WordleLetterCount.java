@@ -2,28 +2,33 @@ package com.exercise.wordlelettercount;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
 public class WordleLetterCount {
 
-   File testFile = new File("hello_world.txt");
+   File testFile = new File("names.txt");
+   ArrayList<String> names = new ArrayList<>();
 
-    public void readTextFile() {
+   public void readTextFile() {
       try {
          Scanner fileReader = new Scanner(testFile);
-         String data = "";
          while (fileReader.hasNextLine()) {
-           data = fileReader.nextLine();
-           System.out.println(data);
+            names.add(fileReader.nextLine());
          }
          fileReader.close();
-
-
-       } catch (FileNotFoundException e) {
+      } catch (FileNotFoundException e) {
          System.out.println("An error occurred.");
          e.printStackTrace();
-       }
-    }
+      }
+
+      for (String name : names) {
+         System.out.println("Hello, " + name + "!");
+      }
+   }
+
+   
+   
  
  }
