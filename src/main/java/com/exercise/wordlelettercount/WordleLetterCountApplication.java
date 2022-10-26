@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class WordleLetterCountApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WordleLetterCountApplication.class, args);
+		WordleLetterCount letterCount = new WordleLetterCount();
+		letterCount.readTextFile();
 	}
 
 }
