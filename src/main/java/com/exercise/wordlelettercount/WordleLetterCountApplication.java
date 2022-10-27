@@ -8,7 +8,9 @@ public class WordleLetterCountApplication {
 
 	public static void main(String[] args) {
 		WordleLetterCount letterCount = new WordleLetterCount();
-		letterCount.readTextFile();
+		//  letterCount.readTextFile();
+		// System.out.println(letterCount.countUniqueLetters("rrtty"));
+		System.out.println(letterCount.readTextFile());
 	}
 
 }
