@@ -9,5 +9,6 @@ public class WordleLetterCountApplication {
 	public static void main(String[] args) {
 		WordleLetterCount letterCount = new WordleLetterCount();
 		System.out.println(letterCount.createMapOfWordsAndRepeatLetterCounts(letterCount.createWordListFromFile()));
+		System.out.println(letterCount.createMapOfWordsAndUniqueLetterCounts(letterCount.createWordListFromFile()));
 	}
 }
