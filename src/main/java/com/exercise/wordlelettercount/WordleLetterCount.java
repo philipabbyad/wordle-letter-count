@@ -1,22 +1,22 @@
 package com.exercise.wordlelettercount;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.TreeMap;
 import java.io.FileNotFoundException;
 
 public class WordleLetterCount {
 
-   File testFile = new File("names.txt");
-   ArrayList<String> words = new ArrayList<>();
+   public ArrayList<String> createWordListFromFile() {
+      File testFile = new File("names.txt");
+      ArrayList<String> wordList = new ArrayList<>();
 
-   public HashMap readTextFile() {
       try {
          Scanner fileReader = new Scanner(testFile);
          while (fileReader.hasNextLine()) {
-            words.add(fileReader.nextLine());
+            wordList.add(fileReader.nextLine());
          }
          fileReader.close();
       } catch (FileNotFoundException e) {
@@ -24,8 +24,12 @@ public class WordleLetterCount {
          e.printStackTrace();
       }
 
-      HashMap<String, Integer> wordsWithCount = new HashMap<>();
-      for (String word : words) {
+      return wordList;
+   }
+
+   public TreeMap createMapOfWordsAndRepeatLetterCounts (ArrayList<String> wordList) {
+      TreeMap<String, Integer> wordsWithCount = new TreeMap<>();
+      for (String word : wordList) {
          String cleanedWord = cleanWord(word);
          if (cleanedWord.length() == 5) {
             wordsWithCount.put(word, countMostRepeatedLetter(cleanedWord));
