@@ -26,8 +26,7 @@ public class WordleLetterCount {
 
       HashMap<String, Integer> wordsWithCount = new HashMap<>();
       for (String word : words) {
-         // words.put(name, countUniqueLetters(name));
-         wordsWithCount.put(word, countMostRepeatedLetter(word));
+         wordsWithCount.put(word, countMostRepeatedLetter(cleanWordToFiveLetters(word)));
       }
       return wordsWithCount;
    }
@@ -81,6 +80,23 @@ public class WordleLetterCount {
       return mostRepeatedLetterCount;
    }
 
+   public String cleanWordToFiveLetters(String word) {
+      StringBuilder cleanWordStringBuilder = new StringBuilder();
+      String cleanWord = word.trim().toLowerCase();
+      char[] charsInCleanedWord = cleanWord.toCharArray();
 
+      for (char cleanChar : charsInCleanedWord) {
+         if (Character.isLetter(cleanChar)) {
+            cleanWordStringBuilder.append(cleanChar);
+         }
+      }
 
+      cleanWord = cleanWordStringBuilder.toString();
+
+      if (cleanWord.length() > 5) {
+         cleanWord = cleanWord.substring(0, 6);
+      }
+
+      return cleanWord;
+   }
  }
