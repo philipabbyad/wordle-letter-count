@@ -48,4 +48,30 @@ public class WordleLetterCount {
       }
       return numUniqueLetters;
    }
+
+   public Integer countMostRepeatedLetter(String word) {
+      char[] charsInWord = word.toCharArray();
+      HashMap<Integer, Integer> repeatedLetters = new HashMap<>();
+      StringBuilder charsToSkip = new StringBuilder();
+
+      for (int charIndex = 0; charIndex < charsInWord.length; charIndex++) {
+         if (charsToSkip.toString().indexOf(charsInWord[charIndex]) == -1) {
+            for (int charIndexToCompare = charIndex + 1; charIndexToCompare < charsInWord.length; charIndexToCompare++) {
+               if(charsInWord[charIndex] == charsInWord[charIndexToCompare]) {
+                  if (hashmap does not contain char key) {
+                     int repeatedCharDecimalValue = charsInWord[charIndex];
+                     repeatedLetters.put(repeatedCharDecimalValue, 2);
+                     charsToSkip.append(charsInWord[charIndex]);
+                  } else if (hashmap noes contain char key) {
+                     // add 1 to value
+                  }
+               }
+            } 
+         }
+      }
+      return numUniqueLetters;
+   }
+
+
+
  }
