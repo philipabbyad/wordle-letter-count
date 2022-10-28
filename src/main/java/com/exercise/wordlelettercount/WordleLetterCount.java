@@ -38,6 +38,17 @@ public class WordleLetterCount {
       return wordsWithCount;
    }
 
+   public TreeMap createMapOfWordsAndUniqueLetterCounts (ArrayList<String> wordList) {
+      TreeMap<String, Integer> wordsWithCount = new TreeMap<>();
+      for (String word : wordList) {
+         String cleanedWord = cleanWord(word);
+         if (cleanedWord.length() == 5) {
+            wordsWithCount.put(word, countUniqueLetters(cleanedWord));
+         }
+      }
+      return wordsWithCount;
+   }
+
    public Integer countUniqueLetters(String word) {
       Integer numUniqueLetters = 5;
       char[] charsInWord = word.toCharArray();
