@@ -10,13 +10,13 @@ import java.io.FileNotFoundException;
 public class WordleLetterCount {
 
    File testFile = new File("names.txt");
-   ArrayList<String> names = new ArrayList<>();
+   ArrayList<String> words = new ArrayList<>();
 
    public HashMap readTextFile() {
       try {
          Scanner fileReader = new Scanner(testFile);
          while (fileReader.hasNextLine()) {
-            names.add(fileReader.nextLine());
+            words.add(fileReader.nextLine());
          }
          fileReader.close();
       } catch (FileNotFoundException e) {
@@ -24,12 +24,12 @@ public class WordleLetterCount {
          e.printStackTrace();
       }
 
-      HashMap<String, Integer> words = new HashMap<>();
-      for (String name : names) {
+      HashMap<String, Integer> wordsWithCount = new HashMap<>();
+      for (String word : words) {
          // words.put(name, countUniqueLetters(name));
-         words.put(name, countMostRepeatedLetter(name));
+         wordsWithCount.put(word, countMostRepeatedLetter(word));
       }
-      return words;
+      return wordsWithCount;
    }
 
    public Integer countUniqueLetters(String word) {
@@ -80,5 +80,7 @@ public class WordleLetterCount {
 
       return mostRepeatedLetterCount;
    }
+
+
 
  }
